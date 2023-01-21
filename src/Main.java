@@ -13,7 +13,9 @@ public class Main {
         Marek.car = car;
         Marek.car.newRide();
 
-
-
+        Marek.setSalary(3010.00);
+        Marek.getSalary();
+        Marek.setSalary(3500.00);
+        Marek.getSalary();
     }
 }
