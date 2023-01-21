@@ -8,14 +8,11 @@ public class Main {
 
         Human Marek = new Human();
 
-        Car car = new Car("BMW","E36", "Nardo Grey", 1.6);
-        car.newRide();
-        Marek.car = car;
-        Marek.car.newRide();
+        Car BMW = new Car("BMW","E36", "Nardo Grey", 1.6, 3000.00);
 
         Marek.setSalary(3010.00);
         Marek.getSalary();
-        Marek.setSalary(3500.00);
-        Marek.getSalary();
+        Marek.setCar(BMW);
+
     }
 }

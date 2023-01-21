@@ -2,7 +2,7 @@ import java.util.Date;
 
 public class Human {
     public Animal pet;
-    public Car car;
+    private Car car;
     Double salary;
     Date dateOfChange = new Date();
     public Double getSalary() {
@@ -19,6 +19,22 @@ public class Human {
             System.out.println("Need to collect an annex to the contract from Mrs. Hania of dept. HR");
             System.out.println("ZUS and US already now about new salary");
             System.out.println("Well done, your new salary is: " + salary + "\n");
+        }
+    }
+
+    public Car getCar() {
+        return car;
+    }
+
+    public void setCar(Car car) {
+        if(this.salary>car.value){
+            this.car = car;
+            System.out.println("Car was bought by cash");
+        } else if(this.salary> car.value/12){
+            this.car=car;
+            System.out.println("Car was bought on loan");
+        }else {
+            System.out.println("You know what to do, go find job");
         }
     }
 }
