@@ -18,14 +18,14 @@ public class Animal {
 
     void feed() {
         weight = weight + 1.5;
-        System.out.println(weight);
+        System.out.println("Weight after feeding: " + weight);
     }
 
     void takeForAWalk() {
 
         if (weight > 0) {
             weight -= 1.5;
-            System.out.println(weight);
+            System.out.println("Weight after walk: " + weight);
         } else if (weight < 0.01) {
             System.out.println("Pet has died");
         }
