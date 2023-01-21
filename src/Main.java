@@ -1,4 +1,5 @@
 import devices.Car;
+import devices.Phone;
 
 public class Main {
     public static void main(String[] args) {
@@ -8,7 +9,7 @@ public class Main {
         pet.takeForAWalk();
         pet.takeForAWalk();*/
 
-        Human Marek = new Human();
+/*        Human Marek = new Human();
 
         Car BMW = new Car("BMW","E36", "Nardo Grey", 1.6, 3000.00);
         Car BMW12 = new Car("BMW","E36", "Nardo Grey", 1.6, 3000.00);
@@ -19,7 +20,10 @@ public class Main {
 
         System.out.println(BMW.equals(BMW12));
         System.out.println(BMW);
-        System.out.println(BMW12);
+        System.out.println(BMW12);*/
+
+        Phone phone = new Phone("Samsung", "Galaxy 22", 2022);
+        phone.turnOn();
 
     }
 }
