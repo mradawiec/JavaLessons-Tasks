@@ -30,4 +30,16 @@ public class Animal {
             System.out.println("Pet has died");
         }
     }
+
+    @Override
+    public String toString() {
+        return "Animal{" +
+                "species='" + species + '\'' +
+                ", weight=" + weight +
+                ", DEFAULT_WEIGHT=" + DEFAULT_WEIGHT +
+                ", DEFAULT_CAT_WEIGHT=" + DEFAULT_CAT_WEIGHT +
+                ", DEFAULT_ELEPHANT_WEIGHT=" + DEFAULT_ELEPHANT_WEIGHT +
+                ", DEFAULT_DOG_WEIGHT=" + DEFAULT_DOG_WEIGHT +
+                '}';
+    }
 }
