@@ -11,6 +11,7 @@ public class Main {
         Car car = new Car("BMW","E36", "Nardo Grey", 1.6);
         car.newRide();
         Marek.car = car;
+        Marek.car.newRide();
 
 
 

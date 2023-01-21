@@ -1,4 +1,5 @@
 public class Human {
-    Animal pet;
-    Car car;
+    public Animal pet;
+    public Car car;
+
 }
