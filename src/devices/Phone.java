@@ -1,11 +1,14 @@
 package devices;
+import Main.Salleable;
+import creatures.Human;
 
-public class Phone extends Device{
+public class Phone extends Device implements Salleable {
     boolean isAndroid;
-    public Phone(String producer, String model, int yearOfProduction){
+    public Phone(String producer, String model, int yearOfProduction, boolean isAndroid){
         this.producer = producer;
         this.model = model;
         this.yearOfProduction = yearOfProduction;
+        this.isAndroid = isAndroid;
     }
     @Override
     public void turnOn() {
@@ -22,5 +25,18 @@ public class Phone extends Device{
                 ", model='" + model + '\'' +
                 ", yearOfProduction=" + yearOfProduction +
                 '}';
+    }
+
+    @Override
+    public void sell(Human seller, Human buyer, Double price) {
+        if(this.equals(seller.getPhone()) && buyer.getCash() >= price){
+            seller.setCash(seller.getCash()+price);
+            buyer.setCash(buyer.getCash()-price);
+            buyer.setPhone(this);
+            seller.setPhone(null);
+            System.out.println("Transakcja udana");
+        }else {
+            System.out.println("Transakcja sie nie powiodla");
+        }
     }
 }

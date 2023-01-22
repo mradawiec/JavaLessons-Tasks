@@ -1,6 +1,7 @@
 package devices;
-
-public class Car {
+import creatures.Human;
+import Main.Salleable;
+public class Car extends Device implements Salleable{
         final String model;
         final String producer;
         String color;
@@ -15,9 +16,14 @@ public class Car {
             this.engineCapacity = engineCapacity;
             this.value = value;
         }
-        void newRide(){
+        public void newRide(){
             System.out.println("Your new car is: " + producer + " " + model + " " + "color: " + color + ", and has engine capacity: " + engineCapacity);
         }
+
+    @Override
+    public void turnOn() {
+
+    }
 
     @Override
     public String toString() {
@@ -28,6 +34,19 @@ public class Car {
                 ", engineCapacity=" + engineCapacity +
                 ", value=" + value +
                 '}';
+    }
+
+    @Override
+    public void sell(Human seller, Human buyer, Double price) {
+    if(this.equals(seller.getCar()) && buyer.getCash() >= price){
+        seller.setCash(seller.getCash()+price);
+        buyer.setCash(buyer.getCash()-price);
+        buyer.setCar(this);
+        seller.setCar(null);
+        System.out.println("Transakcja udana");
+    }else {
+        System.out.println("Transakcja sie nie powiodla");
+    }
     }
 }
 

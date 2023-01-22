@@ -1,12 +1,18 @@
+package creatures;
+
+import Main.Salleable;
 import devices.Car;
+import devices.Phone;
 
 import java.util.Date;
 
-public class Human {
+public class Human implements Salleable {
     public Animal pet;
-    private Car car;
+    public Car car;
+    public Phone phone;
     Double salary;
     Date dateOfChange = new Date();
+    public double Cash;
     public Double getSalary() {
         System.out.println("Last info about seeing your salary was: " +dateOfChange+ "and salary was: "+ salary + "\n");
         return salary;
@@ -31,7 +37,7 @@ public class Human {
     public void setCar(Car car) {
         if(this.salary>car.value){
             this.car = car;
-            System.out.println("devices.Car was bought by cash");
+            System.out.println("Car was bought by cash");
         } else if(this.salary> car.value/12){
             this.car=car;
             System.out.println("devices.Car was bought on loan");
@@ -42,9 +48,38 @@ public class Human {
 
     @Override
     public String toString() {
-        return "Human{" +
+        return "Creatures.Human{" +
                 "salary=" + salary +
                 ", dateOfChange=" + dateOfChange +
                 '}';
+    }
+
+    public Phone getPhone() {
+        return phone;
+    }
+
+    public void setPhone(Phone phone) {
+        this.phone = phone;
+    }
+
+    public Animal getPet() {
+        return pet;
+    }
+
+    public void setPet(Animal pet) {
+        this.pet = pet;
+    }
+
+    public double getCash() {
+        return Cash;
+    }
+
+    public void setCash(double cash) {
+        Cash = cash;
+    }
+
+    @Override
+    public void sell(Human seller, Human buyer, Double price) {
+        System.out.println("Nie można handlować ludźmi!");
     }
 }

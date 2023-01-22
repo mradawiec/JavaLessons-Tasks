@@ -15,4 +15,5 @@ public abstract class Device {
                 ", yearOfProduction=" + yearOfProduction +
                 '}';
     }
+
 }

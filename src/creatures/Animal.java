@@ -1,4 +1,8 @@
-public class Animal {
+package creatures;
+
+import Main.Salleable;
+
+public class Animal implements Salleable{
     final String species;
     private Double weight;
     double DEFAULT_WEIGHT = 3.0;
@@ -16,12 +20,12 @@ public class Animal {
         }
     }
 
-    void feed() {
+    public void feed() {
         weight = weight + 1.5;
         System.out.println("Weight after feeding: " + weight);
     }
 
-    void takeForAWalk() {
+    public void takeForAWalk() {
 
         if (weight > 0) {
             weight -= 1.5;
@@ -33,7 +37,7 @@ public class Animal {
 
     @Override
     public String toString() {
-        return "Animal{" +
+        return "Creatures.Animal{" +
                 "species='" + species + '\'' +
                 ", weight=" + weight +
                 ", DEFAULT_WEIGHT=" + DEFAULT_WEIGHT +
@@ -41,5 +45,18 @@ public class Animal {
                 ", DEFAULT_ELEPHANT_WEIGHT=" + DEFAULT_ELEPHANT_WEIGHT +
                 ", DEFAULT_DOG_WEIGHT=" + DEFAULT_DOG_WEIGHT +
                 '}';
+    }
+
+    @Override
+    public void sell(Human seller, Human buyer, Double price) {
+    if(this.equals(seller.getPet()) && buyer.getCash() >= price){
+        seller.setCash(seller.getCash()+price);
+        buyer.setCash(buyer.getCash()-price);
+        buyer.setPet(this);
+        seller.setPet(null);
+        System.out.println("Transakcja powiodla sie");
+    }else {
+        System.out.println("Transakcja sie nie powiodla");
+    }
     }
 }
