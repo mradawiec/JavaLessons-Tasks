@@ -5,6 +5,7 @@ public abstract class Device {
     String model;
     int yearOfProduction;
 
+
     public abstract void turnOn();
 
     @Override
@@ -16,4 +17,7 @@ public abstract class Device {
                 '}';
     }
 
+    public void refuel(double fuel) {
+
+    }
 }

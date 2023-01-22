@@ -4,7 +4,8 @@ import creatures.Human;
 import creatures.Animal;
 import devices.Phone;
 import devices.Car;
-
+import java.util.ArrayList;
+import java.util.List;
 public class Main {
     public static void main(String[] args) {
 
@@ -28,7 +29,7 @@ public class Main {
 
 /*        Phone phone = new Phone("Samsung", "Galaxy 22", 2022, true);
         phone.turnOn();*/
-
+/*
         Car BMW = new Car("BMW","E36", "Nardo Grey", 1.6, 3000.00);
         Human seller = new Human();
         Human buyer = new Human();
@@ -36,6 +37,12 @@ public class Main {
         buyer.setCash(3400.00);
         BMW.sell(seller,buyer,1000.00);
         System.out.println(seller.getCash() + " " + buyer.getCash());
-        System.out.println(seller.getCar() + " " + buyer.getCar());
+        System.out.println(seller.getCar() + " " + buyer.getCar());*/
+        List<String> apps = new ArrayList<String>();
+        apps.add("TikTok");
+        apps.add("Youtube");
+        Human Marek = new Human();
+        Phone nokia = new Phone("Nokia", "3310", 1980, true);
+        nokia.installAnnApp(apps);
     }
 }
