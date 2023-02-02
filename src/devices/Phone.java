@@ -1,10 +1,12 @@
 package devices;
+import Main.Application;
 import Main.Salleable;
 import creatures.Human;
 
-import java.util.List;
+import java.util.*;
 
 public class Phone extends Device implements Salleable {
+    private Set<Application> apps;
     boolean isAndroid;
     public Phone(String producer, String model, int yearOfProduction, boolean isAndroid, double value){
         super(value, yearOfProduction);
@@ -12,7 +14,15 @@ public class Phone extends Device implements Salleable {
         this.model = model;
         this.yearOfProduction = yearOfProduction;
         this.isAndroid = true;
+        this.apps = new HashSet<>();
     }
+    public void addApp(Application app){
+        this.apps = new HashSet<>();
+    }
+    public Set<Application> getApps(){
+        return apps;
+    }
+
     @Override
     public void turnOn() {
         System.out.println("Wcisnieto przycisk");
@@ -42,26 +52,75 @@ public class Phone extends Device implements Salleable {
             System.out.println("Transakcja sie nie powiodla");
         }
     }
-    void installAnnApp(String appName)
+    public void installAnnApp(Human human,Application app)
     {
-        this.installAnnApp(appName);
-    }
-    void installAnnApp(String appName, double version)
-    {
-        this.installAnnApp(appName, version, DEFAULT_SERVER_ADDRESS);
-    }
-    void installAnnApp(String nameOfApp, double version, String ipAdress)
-    {
-        System.out.println("Instaluje aplikacje: "+nameOfApp+ " wersja: "+version+ " ip adress: "+ipAdress);
-        System.out.println("Zainstalowano");
-    }
-    public void installAnnApp(List<String> appNames)
-    {
-        for(String appName: appNames)
+        double appValue = app.getValue();
+        if(app.getValue() <= human.getCash())
         {
-            this.installAnnApp(appName);
+            apps.add(app);
+            human.setCash(human.getCash()-appValue);
+        }else{
+            System.out.println("You don't have enough money to buy this app");
         }
     }
+    public boolean isAppInstalled(Application app){
+        return apps.contains(app);
+    }
+    public boolean isAppInstalledByName(String appName) {
+        for (Application app : apps) {
+            if(app.getName().equals(appName)) {
+                return true;
+            }
+        }
+        return false;
+    }
+    public void freeApps(){
+        for(Application app: apps){
+            if(app.getValue() == 0){
+                System.out.println(app.getName());
+            }
+        }
+    }
+    public double appsValue(){
+        double value = 0.0;
+        for(Application app : apps){
+            if(app != null){
+                value += app.getValue();
+            }
+        }
+        return value;
+    }
+    public void printInstalledAppsAlphabetically() {
+        List<Application> sortedApps = new ArrayList<>(apps);
+        sortedApps.sort(Comparator.comparing(Application::getName));
+        for (Application app : sortedApps) {
+            System.out.println(app.getName());
+        }
+    }
+
+    public void printInstalledAppsByValue() {
+        List<Application> sortedApps = new ArrayList<>(apps);
+        sortedApps.sort(Comparator.comparingDouble(Application::getValue));
+        for (Application app : sortedApps) {
+            System.out.println(app.getName());
+        }
+    }
+//    void installAnnApp(String appName, double version)
+//    {
+//        this.installAnnApp(appName, version, DEFAULT_SERVER_ADDRESS);
+//    }
+//    void installAnnApp(String nameOfApp, double version, String ipAdress)
+//    {
+//        System.out.println("Instaluje aplikacje: "+nameOfApp+ " wersja: "+version+ " ip adress: "+ipAdress);
+//        System.out.println("Zainstalowano");
+//    }
+//    public void installAnnApp(List<String> appNames)
+//    {
+//        for(String appName: appNames)
+//        {
+//            this.installAnnApp(appName);
+//        }
+//    }
 
     private static final String DEFAULT_SERVER_ADDRESS = "https://milosz.appserver.com";
     private static final String DEFAULT_APP_VERSION = "latest-stable";
