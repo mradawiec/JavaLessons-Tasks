@@ -5,21 +5,18 @@ public class Car extends Device implements Salleable {
     final String model;
     final String producer;
     String color;
-    Double engineCapacity;
-    public Double value;
     Double fuel;
 
 
-    public Car(String producer, String model, String color, Double engineCapacity, Double value) {
+    public Car(String producer, String model, String color, double value, int yearOfProduction) {
+        super(value, yearOfProduction);
         this.model = model;
         this.producer = producer;
         this.color = color;
-        this.engineCapacity = engineCapacity;
-        this.value = value;
     }
 
     public void newRide() {
-        System.out.println("Your new car is: " + producer + " " + model + " " + "color: " + color + ", and has engine capacity: " + engineCapacity);
+        System.out.println("Your new car is: " + producer + " " + model + " " + "color: " + color);
     }
 
     @Override
@@ -33,22 +30,39 @@ public class Car extends Device implements Salleable {
                 "model='" + model + '\'' +
                 ", producer='" + producer + '\'' +
                 ", color='" + color + '\'' +
-                ", engineCapacity=" + engineCapacity +
                 ", value=" + value +
                 '}';
     }
 
     @Override
-    public void sell(Human seller, Human buyer, Double price) {
-        if (this.equals(seller.getCar()) && buyer.getCash() >= price) {
-            seller.setCash(seller.getCash() + price);
-            buyer.setCash(buyer.getCash() - price);
-            buyer.setCar(this);
-            seller.setCar(null);
-            System.out.println("Transakcja udana");
-        } else {
-            System.out.println("Transakcja sie nie powiodla");
+    public void sell(Human seller, Human buyer, Double price) throws Exception {
+        int sellerCarIndex = -1;
+        for(int i=0; i<seller.getGarage().length; i++)
+        {
+            if(seller.getGarage()[i] == this) {
+                sellerCarIndex = i;
+                break;
+            }
         }
+        if (sellerCarIndex == -1)
+            throw new Exception("Seller has 0 cars in garage");
+        int buyerGarageIndex = -1;
+        for(int i=0; i<buyer.getGarage().length; i++){
+            if(buyer.getGarage()[i] == null)
+            {
+                buyerGarageIndex = i;
+                break;
+            }
+            if(buyerGarageIndex == -1)
+                throw new Exception("Buyer has 0 free space in garage");
+        }
+        if(buyer.getCash() < price)
+            throw new Exception("Buyer has not enough money to buy car");
+        seller.getGarage()[sellerCarIndex]=null;
+        buyer.getGarage()[buyerGarageIndex]=this;
+        seller.setCash(seller.getCash()+price);
+        buyer.setCash(buyer.getCash()-price);
+        System.out.println("Transaction finalized");
     }
 
     @Override

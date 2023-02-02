@@ -6,11 +6,12 @@ import java.util.List;
 
 public class Phone extends Device implements Salleable {
     boolean isAndroid;
-    public Phone(String producer, String model, int yearOfProduction, boolean isAndroid){
+    public Phone(String producer, String model, int yearOfProduction, boolean isAndroid, double value){
+        super(value, yearOfProduction);
         this.producer = producer;
         this.model = model;
         this.yearOfProduction = yearOfProduction;
-        this.isAndroid = isAndroid;
+        this.isAndroid = true;
     }
     @Override
     public void turnOn() {

@@ -5,6 +5,12 @@ public abstract class Device {
     String model;
     int yearOfProduction;
 
+    public Device(double value, int yearOfProduction) {
+        this.value = value;
+        this.yearOfProduction = yearOfProduction;
+    }
+
+    double value;
 
     public abstract void turnOn();
 
@@ -19,5 +25,12 @@ public abstract class Device {
 
     public void refuel(double fuel) {
 
+    }
+    public double getValue() {
+        return value;
+    }
+
+    public int getYearOfProduction() {
+        return yearOfProduction;
     }
 }

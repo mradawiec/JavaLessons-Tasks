@@ -2,17 +2,31 @@ package creatures;
 
 import Main.Salleable;
 import devices.Car;
+import devices.Device;
 import devices.Phone;
 
+import java.util.Arrays;
+import java.util.Comparator;
 import java.util.Date;
 
 public class Human implements Salleable {
+    public String name;
     public Animal pet;
-    public Car car;
+    public Car[] garage;
     public Phone phone;
     Double salary;
     Date dateOfChange = new Date();
     public double Cash;
+    final static int DEFAULT_PARKING_SPACES = 3;
+    public Human(String name) {
+        this.name = name;
+        this.garage = new Car[DEFAULT_PARKING_SPACES];
+    }
+    public Human(String name, int garageSize) {
+        this.name = name;
+        this.garage = new Car[garageSize];
+    }
+
     public Double getSalary() {
         System.out.println("Last info about seeing your salary was: " +dateOfChange+ "and salary was: "+ salary + "\n");
         return salary;
@@ -30,20 +44,24 @@ public class Human implements Salleable {
         }
     }
 
-    public Car getCar() {
-        return car;
+    public void setGarage(Car car, int parkingSpot) {
+        garage[parkingSpot] = car;
     }
-
-    public void setCar(Car car) {
-        if(this.salary>car.value){
-            this.car = car;
-            System.out.println("Car was bought by cash");
-        } else if(this.salary> car.value/12){
-            this.car=car;
-            System.out.println("devices.Car was bought on loan");
-        }else {
-            System.out.println("You know what to do, go find job");
+    public double carsValue(){
+        double value = 0.0;
+        for (Car car: garage) {
+            if (car != null)
+                value += car.getValue();
         }
+        return value;
+    }
+    public void sortCarsByDate() {
+        Arrays.sort(garage, new Comparator<Car>() {
+            @Override
+            public int compare(Car o1, Car o2) {
+                return o1.getYearOfProduction() - o2.getYearOfProduction();
+            }
+        });
     }
 
     @Override
@@ -78,8 +96,12 @@ public class Human implements Salleable {
         Cash = cash;
     }
 
+    public Car[] getGarage() {
+        return garage;
+    }
+
     @Override
-    public void sell(Human seller, Human buyer, Double price) {
-        System.out.println("Nie można handlować ludźmi!");
+    public void sell(Human seller, Human buyer, Double price) throws Exception{
+        new Exception("Nie można handlować ludźmi!");
     }
 }

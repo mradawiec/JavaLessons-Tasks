@@ -4,13 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c4b35c19-d535-4d20-8f94-b5dd402c5756" name="Changes" comment="9 task">
-      <change afterPath="$PROJECT_DIR$/src/devices/Diesel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/devices/Electric.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/devices/LPG.java" afterDir="false" />
+    <list default="true" id="c4b35c19-d535-4d20-8f94-b5dd402c5756" name="Changes" comment="10 task">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main/Salleable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main/Salleable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/creatures/Human.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/creatures/Human.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/devices/Car.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/devices/Car.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/devices/Device.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/devices/Device.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/devices/Diesel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/devices/Diesel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/devices/Electric.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/devices/Electric.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/devices/LPG.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/devices/LPG.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/devices/Phone.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/devices/Phone.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -41,12 +44,13 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "last_opened_file_path": "C:/Users/leszek/IdeaProjects/JAVA v2"
   }
-}</component>
+}]]></component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -133,7 +137,14 @@
       <option name="project" value="LOCAL" />
       <updated>1674406600099</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="10 task">
+      <created>1674407956637</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1674407956637</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -148,6 +159,7 @@
     <MESSAGE value="7 task" />
     <MESSAGE value="8 task" />
     <MESSAGE value="9 task" />
-    <option name="LAST_COMMIT_MESSAGE" value="9 task" />
+    <MESSAGE value="10 task" />
+    <option name="LAST_COMMIT_MESSAGE" value="10 task" />
   </component>
 </project>
