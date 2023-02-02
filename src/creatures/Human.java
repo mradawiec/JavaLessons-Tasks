@@ -47,6 +47,41 @@ public class Human implements Salleable {
     public void setGarage(Car car, int parkingSpot) {
         garage[parkingSpot] = car;
     }
+    public void addCarToGarage(Car car) {
+        for (int i = 0; i < this.garage.length; i++) {
+            if (this.garage[i] == null) {
+                this.garage[i] = car;
+                break;
+            }
+        }
+    }
+
+    public void removeCarFromGarage(Car car) {
+        for (int i = 0; i < this.garage.length; i++) {
+            if (this.garage[i] == car) {
+                this.garage[i] = null;
+                break;
+            }
+        }
+    }
+
+    public boolean hasFreeSpaceInGarage() {
+        for (int i = 0; i < this.garage.length; i++) {
+            if (this.garage[i] == null) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public boolean hasCarInGarage(Car car) {
+        for (int i = 0; i < this.garage.length; i++) {
+            if (this.garage[i] == car) {
+                return true;
+            }
+        }
+        return false;
+    }
     public double carsValue(){
         double value = 0.0;
         for (Car car: garage) {

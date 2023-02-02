@@ -9,11 +9,11 @@ public class Main {
         Human seller = new Human("Marek", 2);
         Human buyer = new Human("Tadek");
         seller.setCash(10000.00);
-        buyer.setCash(10000.00);
+        buyer.setCash(2000.00);
         seller.setGarage(BMW,0);
         seller.setGarage(Mazda,1);
         try {
-            BMW.sell(seller,buyer,3000.00);
+            Mazda.sell(seller,buyer,3000.00);
         }catch (Exception e){
             System.out.println("Error: "+e.getMessage());
         }
